@@ -38,14 +38,23 @@ const HomePage = () => {
 
   const avatarStyle = {
     width: '230px',
-    height: '240px',
+    height: '230px',
     margin: '0 auto 24px',
     borderRadius: '50%',
     background: 'linear-gradient(to right, #60a5fa, #a855f7)',
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
   };
+
+  const imageStyle = {
+  width: '100%',
+  height: '100%',
+  borderRadius: '50%',
+  objectFit: 'cover',
+  objectPosition: 'center'
+};
+
 
   const h1Style = {
     fontSize: window.innerWidth <= 768 ? '32px' : '48px',
@@ -106,7 +115,7 @@ const HomePage = () => {
         <div style={textCenterStyle}>
           <FadeInComponent delay={200}>
             <div style={avatarStyle}>
-              <img src={profile} alt="Profile" style={{ borderRadius: '50%', width: '100%', height: '100%' }} />
+              <img src={profile} alt="Profile" style={imageStyle} />
             </div>
           </FadeInComponent>
           <FadeInComponent delay={400}>
