@@ -37,8 +37,8 @@ const HomePage = () => {
   };
 
   const avatarStyle = {
-    width: '128px',
-    height: '136px',
+    width: '230px',
+    height: '240px',
     margin: '0 auto 24px',
     borderRadius: '50%',
     background: 'linear-gradient(to right, #60a5fa, #a855f7)',
