@@ -145,9 +145,9 @@ const HomePage = () => {
                 lineHeight: '1.6',
                 fontSize: window.innerWidth <= 768 ? '14px' : '16px'
               }}>
-                Interested in exploring how data can be used to understand and solve real-world problems. 
-                I enjoy working with complex datasets to uncover insights using machine learning and data visualization. 
-                I’m always curious, open to new ideas, and eager to grow both personally and professionally in this fast-changing field.
+              Passionate about creating impactful solutions through data and technology.
+              I enjoy working with complex datasets, building responsive websites, and developing interactive applications to deliver meaningful user experiences.
+              I’m always curious, open to new ideas, and eager to grow both personally and professionally in this fast-changing field.
               </p>
             </div>
           </FadeInComponent>
@@ -287,9 +287,9 @@ const HomePage = () => {
           </FadeInComponent>
             <div style={gridStyle}>
             <SkillCard icon="🤖" skill="Machine Learning"  delay={200} />
-            <SkillCard icon="🧙‍♂️" skill="Mahnwa"  delay={300} />
-            <SkillCard icon="🎬" skill="Anime" delay={400} />
-            <SkillCard icon="🎮" skill="Gaming" delay={500} />
+            <SkillCard icon="💻" skill="Web Development" delay={500} />
+            <SkillCard icon="🔍" skill="Data Analysis" delay={300} />
+            <SkillCard icon="📊" skill="Data Visualization" delay={700} />
           </div>
         </div>
       </section>
