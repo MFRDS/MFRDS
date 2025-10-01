@@ -1,49 +1,55 @@
-import React, { useState } from 'react';
-import Navigation from './components/Navigation';
-import StarsBackground from './components/StarsBackground';
-import HomePage from './pages/HomePage';
-import ProjectsPage from './pages/ProjectsPage';
-import CertificatesPage from './pages/CertificatesPage';
-import './styles/globals.css';
+import React, { useState, useEffect } from 'react';
+import Navbar from './components/Navbar';
+import HomePage from './pages/Home';
+import AboutPage from './pages/About';
+import ProjectsPage from './pages/Projects';
 
-const App = () => {
+function App() {
+  const [isDarkMode, setIsDarkMode] = useState(true);
   const [currentPage, setCurrentPage] = useState('home');
+  const [isScrolled, setIsScrolled] = useState(false);
 
-  const renderPage = () => {
-    switch (currentPage) {
-      case 'home':
-        return <HomePage />;
-      case 'projects':
-        return <ProjectsPage />;
-      case 'certificates':
-        return <CertificatesPage />;
-      default:
-        return <HomePage />;
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 100);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const toggleTheme = () => {
+    setIsDarkMode(!isDarkMode);
+  };
+
+  useEffect(() => {
+    if (isDarkMode) {
+      document.body.classList.remove('light-mode');
+    } else {
+      document.body.classList.add('light-mode');
     }
-  };
-
-  const appStyle = {
-    minHeight: '100vh',
-    background: 'linear-gradient(135deg, #111827 0%, #000000 50%, #1e3a8a 100%)',
-    color: 'white',
-    position: 'relative',
-    overflowX: 'hidden'
-  };
-
-  const mainStyle = {
-    position: 'relative',
-    zIndex: 10
-  };
+  }, [isDarkMode]);
 
   return (
-    <div style={appStyle}>
-      <StarsBackground />
-      <Navigation currentPage={currentPage} setCurrentPage={setCurrentPage} />
-      <main style={mainStyle}>
-        {renderPage()}
+    <div className="App">
+      <div className="grid-bg"></div>
+      
+      <Navbar 
+        isDarkMode={isDarkMode} 
+        toggleTheme={toggleTheme} 
+        isScrolled={isScrolled} 
+        setCurrentPage={setCurrentPage} 
+      />
+      
+      <main>
+        {currentPage === 'home' && <HomePage setCurrentPage={setCurrentPage} />}
+        {currentPage === 'about' && <AboutPage setCurrentPage={setCurrentPage} />}
+        {currentPage === 'projects' && <ProjectsPage />}
       </main>
+      
+      
     </div>
   );
-};
+}
 
 export default App;
