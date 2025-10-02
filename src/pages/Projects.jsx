@@ -28,7 +28,7 @@ const ProjectsPage = () => {
           <ProjectCard
             title="InterviewKu - Mobile App"
             description="InterviewKu is an Android application that provides interview simulation feature."
-            tags={['Streamlit',  'AWS', 'Chatbot', 'SQL Alchemy']}
+            tags={['Tensorflow','NLP']}
             image={InterviewKuImg} 
             link={"https://github.com/krisna31/interviewku"}
           />
