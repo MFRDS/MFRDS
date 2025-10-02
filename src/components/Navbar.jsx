@@ -1,7 +1,9 @@
-import React from 'react';
-import { User, Moon, Sun } from 'lucide-react';
+import React, { useState } from 'react';
+import { User, Moon, Sun, Menu, X } from 'lucide-react';
 
 const Navbar = ({ isDarkMode, toggleTheme, isScrolled, setCurrentPage }) => {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
       <div className="navbar-content">
@@ -11,14 +13,20 @@ const Navbar = ({ isDarkMode, toggleTheme, isScrolled, setCurrentPage }) => {
         >
           <User />
         </div>
-        
-        <div className="nav-links">
+
+        {/* Tombol hamburger untuk mobile */}
+        <div className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
+          {menuOpen ? <X /> : <Menu />}
+        </div>
+
+        <div className={`nav-links ${menuOpen ? 'open' : ''}`}>
           <a
             href="#about"
             className="nav-link"
             onClick={(e) => {
               e.preventDefault();
               setCurrentPage('about');
+              setMenuOpen(false);
             }}
           >
             About
@@ -29,11 +37,12 @@ const Navbar = ({ isDarkMode, toggleTheme, isScrolled, setCurrentPage }) => {
             onClick={(e) => {
               e.preventDefault();
               setCurrentPage('projects');
+              setMenuOpen(false);
             }}
           >
             Projects
           </a>
-          
+
           <div className="theme-toggle" onClick={toggleTheme}>
             <div className={`theme-toggle-slider ${isDarkMode ? 'dark' : 'light'}`}>
               {isDarkMode ? <Moon /> : <Sun />}
