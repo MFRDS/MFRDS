@@ -9,11 +9,15 @@ const Navbar = ({ isDarkMode, toggleTheme, isScrolled, setCurrentPage }) => {
       <div className="navbar-content">
         <div 
           className="logo"
-          onClick={() => setCurrentPage('home')}
+          onClick={() => {
+            setCurrentPage('home');
+            setMenuOpen(false);
+          }}
         >
           <User />
         </div>
-        
+
+        {/* Hamburger Button */}
         <div className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
           {menuOpen ? <X /> : <Menu />}
         </div>
