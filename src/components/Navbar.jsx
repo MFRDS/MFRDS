@@ -13,8 +13,7 @@ const Navbar = ({ isDarkMode, toggleTheme, isScrolled, setCurrentPage }) => {
         >
           <User />
         </div>
-
-        {/* Tombol hamburger untuk mobile */}
+        
         <div className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
           {menuOpen ? <X /> : <Menu />}
         </div>
